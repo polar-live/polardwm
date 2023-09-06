@@ -62,7 +62,7 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
-
+#define PrintScreenDWM	    0x0000ff61
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/usr/local/bin/st", "-c", cmd, NULL } }
 
@@ -72,6 +72,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *launcher[] = { "rofi", "-show", "run", NULL };
 static const char *lock[] = { "slock", NULL};
+static const char *cmdprintscreen[]  = { "scrot", "-s ", "%Y-%m-%d-%s_$wx$h.png", "~/Pictures/screenshots/'", NULL };
 
 /* If you use pipewire add somewhere in your constants definition section. Use "wpctl status" to
    find out the real sink ID, 0 is a placeholder here. */
@@ -118,6 +119,7 @@ static const Key keys[] = {
 	{ 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
 	{ 0,                       XF86XK_AudioMute, spawn, {.v = mutevol } },
 	{ 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
+	{ 0,    PrintScreenDWM,      spawn,          {.v = cmdprintscreen } },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
 };
