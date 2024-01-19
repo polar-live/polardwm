@@ -23,7 +23,7 @@ static const char col_cyan[]        = "#005577";
 #include "/home/polar/.cache/wal/colors-wal-dwm.h"
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4" };
+static const char *tags[] = { "", "", "", "󰓓", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
