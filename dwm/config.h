@@ -23,18 +23,19 @@ static const char col_cyan[]        = "#005577";
 #include "/home/polar/.cache/wal/colors-wal-dwm.h"
 
 /* tagging */
-static const char *tags[] = { "", "", "", "󰓓", "", "" };
+static const char *tags[] = { "", "", "", "󰙯", "󰓓", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
-	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+	/* class       instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "firefox",   NULL,     NULL,           1,    	    0,          0,          -1,        -1 },
+	{ "Alacritty", NULL,   	 NULL,		 1 << 1	    0,	        1,	    0,         -1 },
+	{ "Spotify",   NULL,     NULL,           1 << 2,    0,          0,          0,         -1 },
+	{ "discord",   NULL,     NULL,           1 << 3,    0,          0,          0,         -1 },
+	{ "steam",     NULL,	 NULL,		 1 << 4,    0,		0,	    0	       -1 },
 };
 
 /* layout(s) */
