@@ -32,10 +32,10 @@ static const Rule rules[] = {
 	 */
 	/* class       instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "firefox",   NULL,     NULL,           1,    	    0,          0,          -1,        -1 },
-	{ "Alacritty", NULL,   	 NULL,		 1 << 1	    0,	        1,	    0,         -1 },
+	{ "Alacritty", NULL,   	 NULL,		 1 << 1,    0,	        1,	    0,         -1 },
 	{ "Spotify",   NULL,     NULL,           1 << 2,    0,          0,          0,         -1 },
 	{ "discord",   NULL,     NULL,           1 << 3,    0,          0,          0,         -1 },
-	{ "steam",     NULL,	 NULL,		 1 << 4,    0,		0,	    0	       -1 },
+	{ "steam",     NULL,	 NULL,		 1 << 4,    0,		0,	    0,	       -1 },
 };
 
 /* layout(s) */
@@ -75,6 +75,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *launcher[] = { "rofi", "-show", "run", NULL };
 static const char *lock[] = { "slock", NULL};
+static const char *fmanager[] = { "nautilus", NULL};
 static const char *cmdprintscreen[]  = { "scrot", "-s ", "%Y-%m-%d-%s_$wx$h.png", "~/Pictures/screenshots/'", NULL };
 
 /* If you use pipewire add somewhere in your constants definition section. Use "wpctl status" to
@@ -88,6 +89,7 @@ static const Key keys[] = {
 	/*{ MODKEY,                       XK_f,      spawn,          {.v = dmenucmd } },*/
 	{ MODKEY, 			XK_f, spawn, 	      {.v = launcher } },
 	{ MODKEY,            		XK_q, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_v, spawn,          {.v = fmanager } },
 	{ MODKEY|ShiftMask,		XK_l, spawn,          {.v = lock   } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_Left,      focusstack,     {.i = +1 } },
@@ -102,6 +104,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_p,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	/*{ MODKEY|ShiftMask,             XK_f,      fullscreen,  {0} }, */
 	{ MODKEY,                       XK_g,  	   setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_o,      togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
